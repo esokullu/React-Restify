@@ -3,8 +3,8 @@
 namespace CapMousse\ReactRestify\Container;
 
 use Psr\Container\ContainerInterface;
-use CapMousse\ReactRestify\Errors\Container\ContainerException;
-use CapMousse\ReactRestify\Errors\Container\NotFoundException;
+//use CapMousse\ReactRestify\Errors\Container\ContainerException;
+//use CapMousse\ReactRestify\Errors\Container\NotFoundException;
 
 class Container implements ContainerInterface
 {
