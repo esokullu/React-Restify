@@ -3,7 +3,7 @@
  * @author Klyachin Andrey <akliachin@kiwitaxi.com>
  */
 
-namespace CapMousse\ReactRestify\Errors\Container;
+namespace CapMousse\ReactRestify\Container;
 
 use Psr\Container\ContainerExceptionInterface;
 
