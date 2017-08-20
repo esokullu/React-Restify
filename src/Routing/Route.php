@@ -60,17 +60,17 @@ class Route extends EventEmitter
      * @param String|array $param  parameter to filter
      * @param String $filter regexp to execute
      *
-     * @return void
+     * @return Route The object itself, so that the same method can be called multiple times.
      */
     public function where($param, $filter)
     {
         if (is_array($param)) {
             $this->filters = array_merge($this->filters, $param);
-
-            return;
         }
-
-        $this->filters[$param] = $filter;
+        else {
+            $this->filters[$param] = $filter;
+        }
+        return $this;
     }
 
     /**
