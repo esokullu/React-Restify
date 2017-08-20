@@ -1,5 +1,5 @@
 {
-    "name"          : "capmousse/react-restify",
+    "name"          : "esokullu/react-restify",
     "description"   : "Create RESTful API with ReactPHP",
     "keywords"      : [ "react", "rest", "restify" ],
     "license"       : "MIT",
