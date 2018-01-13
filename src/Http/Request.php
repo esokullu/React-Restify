@@ -167,7 +167,7 @@ class Request extends EventEmitter
 
     public function __get($name)
     {
-        return isset($this->data[$name]) ? $this->data[$name] : false;
+        return isset($this->data[$name]) ? $this->data[$name] : null;
     }
 
     public function __set($name, $value)
