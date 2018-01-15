@@ -174,4 +174,14 @@ class Request extends EventEmitter
     {
         $this->data[$name] = $value;
     }
+    
+    /**
+     * To handle methods like:
+     * httpRequest->getQueryParams
+     */
+    public function __call($method, $params)
+    {
+        $res = $this->httpRequest->$method(...$params);
+        return $res;
+    }
 }
