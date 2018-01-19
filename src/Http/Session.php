@@ -43,6 +43,8 @@ class Session
 
     protected function fetchSession($request) {
         $file = $this->getSessionFile($request);
+        if(!file_exists($file))
+            return array();
         $session =  unserialize(file_get_contents($file));
         return $session;
     }
