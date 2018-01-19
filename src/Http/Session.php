@@ -12,7 +12,7 @@ class Session
     {
         if(!$request->hasSession()) {
             $r = rand();
-            $file = $this->dir . DIRECTORY_SEPARATOR . $this->prefix . (string) $r;
+            $file = $this->getSessionFile($request);
             touch($file);
             $response->addCookie("id", $r);
         }
@@ -37,7 +37,7 @@ class Session
 
     protected function getSessionFile($request) {
         $id = $request->getSessionId();
-        $file =$this->dir . DIRECTORY_SEPARATOR . $this->prefix . $id;
+        $file = $this->dir . DIRECTORY_SEPARATOR . $this->prefix . $id;
         return $file;
     }
 
