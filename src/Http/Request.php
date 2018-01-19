@@ -82,6 +82,17 @@ class Request extends EventEmitter
         }
     }
 
+    public function hasSession()
+    {
+        $id = $this->getSessionId();
+        return isset($id);
+    }
+
+    public function getSessionId()
+    {
+        return $this->getCookie("id");
+    }
+
     /**
      * Parse request data
      * @return void

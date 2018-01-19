@@ -89,14 +89,6 @@ class Response
         );
     }
 
-    /*
-    public function startSession($dir)
-    {
-        $r = rand();
-        file_put_contents()
-    }
-    */
-
     /**
      * Set the status code of the response
      *
