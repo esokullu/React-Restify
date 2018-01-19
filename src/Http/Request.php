@@ -61,12 +61,24 @@ class Request extends EventEmitter
 
     public function getCookie($key)
     {
+        // react v0.8
+        /*
         if(isset($this->httpRequest->getCookieParams()[$key]))
         {
             return $this->httpRequest->getCookieParams()[$key];
         }
         else {
             return null;
+        }
+        */
+        $cookies = $this->getHeaders()["cookie"];
+        foreach($cookies as $cookie) {
+            $nameValuePair = explode('=', $cookie, 2);
+            if (count($nameValuePair) === 2) {
+                $k = urldecode($nameValuePair[0]);
+                if($key == $k)
+                    return urldecode($nameValuePair[1]);
+            }
         }
     }
 
