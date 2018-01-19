@@ -59,6 +59,17 @@ class Request extends EventEmitter
         return $headers;
     }
 
+    public function getCookie($key)
+    {
+        if(isset($this->httpRequest->getCookieParams()[$key]))
+        {
+            return $this->httpRequest->getCookieParams()[$key];
+        }
+        else {
+            return null;
+        }
+    }
+
     /**
      * Parse request data
      * @return void

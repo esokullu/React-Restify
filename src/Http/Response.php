@@ -72,6 +72,31 @@ class Response
         return $this;
     }
 
+
+    /**
+     * Sends a cookie in the response.
+     *
+     * @param string $name
+     * @param string $value
+     * 
+     * @return Response
+     */
+    public function addCookie($name, $value)
+    {
+        return  $this->addHeader(
+            "Set-Cookie", 
+            sprintf("%s=%s", urlencode($name), urlencode($value))
+        );
+    }
+
+    /*
+    public function startSession($dir)
+    {
+        $r = rand();
+        file_put_contents()
+    }
+    */
+
     /**
      * Set the status code of the response
      *
