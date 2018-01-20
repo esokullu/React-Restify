@@ -5,8 +5,12 @@ namespace CapMousse\ReactRestify\Http;
 class Session
 {
     private $prefix = "session_";
-    private $dir = "/Users/groups/Code/graphpress-server/sessions";
+    private $dir;
 
+    public function __construct($dir) 
+    {
+        $this->dir = $dir;
+    }
 
     public function start($request, $response)
     {
