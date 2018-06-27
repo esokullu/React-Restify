@@ -71,7 +71,11 @@ class Request extends EventEmitter
             return null;
         }
         */
-        $cookies = $this->getHeaders()["cookie"];
+        $headers = $this->getHeaders();
+        if(!isset($headers["cookie"])||!is_array($headers["cookie"])||count($headers["cookie"])==0) {
+            return null;
+        }
+        $cookies = $headers["cookie"];
         foreach($cookies as $cookie) {
             $nameValuePair = explode('=', $cookie, 2);
             if (count($nameValuePair) === 2) {
