@@ -77,11 +77,14 @@ class Request extends EventEmitter
         }
         $cookies = $headers["cookie"];
         foreach($cookies as $cookie) {
-            $nameValuePair = explode('=', $cookie, 2);
-            if (count($nameValuePair) === 2) {
-                $k = urldecode($nameValuePair[0]);
-                if($key == $k)
-                    return urldecode($nameValuePair[1]);
+            $params = explode(';', $cookie);
+            foreach ($params as $param) {
+                $nameValuePair = explode('=', $param, 2);
+                if (count($nameValuePair) === 2) {
+                    $k = urldecode($nameValuePair[0]);
+                    if($key == $k)
+                        return urldecode($nameValuePair[1]);
+                }
             }
         }
     }
