@@ -17,6 +17,12 @@ class Request extends EventEmitter
     private $data = [];
 
     /**
+     * @var string - used to keep newly generated sessionId
+     * and also optimizaton to not parse cookies each time
+     */
+    private $sessionId;
+
+    /**
      * @param ReactHttpRequest $httpRequest
      */
     public function __construct(ReactHttpRequest $httpRequest)
@@ -97,7 +103,18 @@ class Request extends EventEmitter
 
     public function getSessionId()
     {
-        return $this->getCookie("id");
+        if (is_null($this->sessionId)) {
+            $this->sessionId = $this->getCookie("id");
+        }
+        return $this->sessionId;
+    }
+
+    /**
+     * Used for new requests for which session was generated
+     */
+    public function setSessionId($newSessionId)
+    {
+        $this->sessionId = $newSessionId;
     }
 
     /**

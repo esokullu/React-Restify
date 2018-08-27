@@ -15,7 +15,8 @@ class Session
     public function start($request, $response)
     {
         if(!$request->hasSession()) {
-            $r = rand();
+            $r = strval(rand());
+            $request->setSessionId($r);
             $file = $this->getSessionFile($request);
             touch($file);
             $response->addCookie("id", $r);
