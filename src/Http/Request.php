@@ -85,7 +85,7 @@ class Request extends EventEmitter
         foreach($cookies as $cookie) {
             $params = explode(';', $cookie);
             foreach ($params as $param) {
-                $nameValuePair = explode('=', $param, 2);
+                $nameValuePair = explode('=', trim($param), 2);
                 if (count($nameValuePair) === 2) {
                     $k = urldecode($nameValuePair[0]);
                     if($key == $k)
