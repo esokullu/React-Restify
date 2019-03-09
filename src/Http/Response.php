@@ -132,7 +132,7 @@ class Response
      */
     public function write($data)
     {
-        $this->contentLength += strlen($data);
+        $this->contentLength += mb_strlen($data);
         $this->data .= $data;
 
         return $this;
