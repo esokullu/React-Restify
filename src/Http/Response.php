@@ -139,38 +139,6 @@ class Response
     }
 
     /**
-     * Write json to the response
-     *
-     * @param mixed $data
-     * @return Reponse
-     */
-    public function writeJson($data)
-    {
-        $data = json_encode($data);
-
-        $this->write($data);
-        $this->addHeader("Content-Type", "application/json");
-
-        return $this;
-    }
-    
-    /**
-     * Write jsonp to the response
-     *
-     * @param mixed $data
-     * @return Reponse
-     */
-    public function writeJsonP($data, $callback="")
-    {
-        $data = sprintf("%s(%s)", $callback, json_encode($data));
-
-        $this->write($data);
-        $this->addHeader("Content-Type", "application/json");
-
-        return $this;
-    }
-
-    /**
      * Empty current response
      * 
      * @return Reponse
