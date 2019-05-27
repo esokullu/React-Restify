@@ -137,6 +137,40 @@ class Response
 
         return $this;
     }
+    
+    
+
+    /**
+     * Write json to the response
+     *
+     * @param mixed $data
+     * @return Reponse
+     */
+    public function writeJson($data)
+    {
+        $data = json_encode($data);
+
+        $this->write($data);
+        $this->addHeader("Content-Type", "application/json;  charset=utf-8");
+
+        return $this;
+    }
+    
+    /**
+     * Write jsonp to the response
+     *
+     * @param mixed $data
+     * @return Reponse
+     */
+    public function writeJsonP($data, $callback="")
+    {
+        $data = sprintf("%s(%s)", $callback, json_encode($data));
+
+        $this->write($data);
+        $this->addHeader("Content-Type", "application/json; charset=utf-8");
+
+        return $this;
+    }
 
     /**
      * Empty current response
