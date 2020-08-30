@@ -81,11 +81,11 @@ class Response
      * 
      * @return Response
      */
-    public function addCookie($name, $value)
+    public function addCookie($name, $value, $samesite="none")
     {
         return  $this->addHeader(
             "Set-Cookie", 
-            sprintf("%s=%s", urlencode($name), urlencode($value))
+            sprintf("%s=%s; samesite=%s", urlencode($name), urlencode($value), $samesite)
         );
     }
 
